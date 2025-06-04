@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>存在しない偉人の名言ジェネレーター</title>
+  <link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 30px;
+      background: url('bg_sepia.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+    h1 { color: #f8f8f8; text-shadow: 2px 2px 4px #000; }
+    #quoteBox {
+      margin-top: 20px;
+      font-size: 18px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .form-section {
+      margin-top: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 8px;
+      border-radius: 6px;
+      border: 1px solid #aaa;
+    }
+    button {
+      background-color: #9370db;
+      color: white;
+      cursor: pointer;
+    }
+    #introOverlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-family: 'Yuji Boku', serif;
+      z-index: 9999;
+      animation: fadeOut 4s ease-in-out 2s forwards;
+      flex-direction: column;
+    }
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="introOverlay">
+    <p>存在しない偉人の</p>
+    <p>存在しない名言集</p>
+    <audio id="introSound" src="https://soundeffect-lab.info/sound/voice/mp3/voice_laugh_samurai1.mp3" autoplay></audio>
+  </div>
+
+  <audio id="bgm" src="tam-y25.mp3" loop preload="auto"></audio>
+
+  <h1>存在しない偉人の存在しない名言集</h1>
+  <button onclick="generateQuote()">🎲 名言を生成する</button>
+  <div id="quoteBox">ここに名言が表示されます</div>
+
+  <div class="form-section">
+    <h2>🖋 偉人と名言を登録しよう</h2>
+    <input type="text" id="newQuote" placeholder="名言を入力"><br>
+    <input type="text" id="newAuthor" placeholder="偉人の名前を入力"><br>
+    <input type="text" id="newYears" placeholder="例：1855–1911"><br>
+    <button onclick="addCustomQuote()">✅ 登録する</button>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
